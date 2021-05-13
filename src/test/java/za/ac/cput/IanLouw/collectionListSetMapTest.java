@@ -5,14 +5,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
 
-class CollectionListSetTest {
+class collectionListSetMapTest {
 
     Collection<String> list = new LinkedList<>();
     Collection<Integer> set = new HashSet<>();
+    HashMap<Integer, String> map = new HashMap<>();
 
     @BeforeEach
     void setUp() {
@@ -26,8 +28,14 @@ class CollectionListSetTest {
         set.add(1);
         set.add(2);
         set.add(3);
+
+        //Adding elements to map
+        map.put(1 , "One");
+        map.put(2, "Two");
+        map.put(3, "Three");
     }
 
+    //-------------Tests for List-------------\\
     @Test
     @DisplayName("This displays add test for List")
     void testAddList(){
@@ -50,6 +58,7 @@ class CollectionListSetTest {
         System.out.println(list.contains("Element 1"));
     }
 
+    //-------------Tests for Set-------------\\
     @Test
     @DisplayName("This displays add test for Set")
     void testAddSet(){
@@ -68,5 +77,27 @@ class CollectionListSetTest {
     @DisplayName("This displays find test for Set")
     void testFindSet(){
         System.out.println(set.contains(1));
+    }
+
+    //-------------Tests for Map-------------\\
+    @Test
+    @DisplayName("This displays add test for map")
+    void testAddMap(){
+        map.put(4, "Four");
+        System.out.println(map);
+    }
+
+    @Test
+    @DisplayName("This displays remove test for map")
+    void testRemoveMap(){
+        map.remove(2);
+        System.out.println(map);
+    }
+
+    @Test
+    @DisplayName("This displays find test for map")
+    void testFindMap(){
+        //map.containsKey(1);
+        System.out.println(map.containsKey(1));
     }
 }
